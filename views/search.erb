@@ -1,0 +1,15 @@
+<h1>Enter the keywords</h1>
+
+<form action="/search" method="get">
+  <input type="text" name="q"/>
+  <input type="submit"/>
+</form>  
+
+<% @results.each do |node| %>
+  Title: <b><%= node.title %></b>
+  <br>
+  Link:<%= node.link %>
+  <br>
+  Description:<%= node.description %>
+  <br>
+<% end %>
