@@ -1,15 +1,22 @@
 <h1>Enter the keywords</h1>
+<hr size="5" align="center" noshade width="90%" color="0000ff"><br>
 
 <form action="/search" method="get">
   <input type="text" name="q"/>
   <input type="submit"/>
 </form>  
-
+<table border=2>
+  <td colspan=2 align=center><h2><b>=Search Result=<b><h2></td>
+  <tr>
 <% @results.each do |node| %>
-  Title: <b><%= node.title %></b>
-  <br>
-  Link:<%= node.link %>
-  <br>
-  Description:<%= node.description %>
-  <br>
+  <td><b>Title<b></td>
+  <td><b><%= node.title %></b></td>
+  <tr>
+  <td>Link</td>
+  <td><a href="<%= node.link %>" target="_blank"><%= node.link %></a></td>
+  <tr>
+  <td>Description</td>
+  <td><%= node.description %></td><tr>
+ 
 <% end %>
+</table>
