@@ -1,22 +1,44 @@
-<h1>Enter the keywords</h1>
-<hr size="5" align="center" noshade width="90%" color="0000ff"><br>
+<html lang="en">
+  <head>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-<form action="/search" method="get">
-  <input type="text" name="q"/>
-  <input type="submit"/>
-</form>  
-<table border=2>
-  <td colspan=2 align=center><h2><b>=Search Result=<b><h2></td>
-  <tr>
-<% @results.each do |node| %>
-  <td><b>Title<b></td>
-  <td><b><%= node.title %></b></td>
-  <tr>
-  <td>Link</td>
-  <td><a href="<%= node.link %>" target="_blank"><%= node.link %></a></td>
-  <tr>
-  <td>Description</td>
-  <td><%= node.description %></td><tr>
- 
-<% end %>
-</table>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <title>search result</title>
+  </head>
+
+  <body>
+    <div class="container">
+    <h1><p class="text-center">Just Search</p></h1>
+      <hr size="5" align="center" noshade width="90%" color="0000ff"><br>
+      
+      <form action="/search" method="get">
+        <div class="form-group has-success">
+          <label for="inputkeywords"><h4>Please enter the KEYWORDS</h4></label>
+          <button class="btn btn-warning">Submit</button>
+          <br><br><input type="text" name="q" class="form-control" id="inputkeywords" placeholder="Keywords">
+        </div>
+      </form> 
+
+        <table class=table table-striped>
+          <td colspan=2 align=center><h2><b>=Search Result=<b><h2></td>
+          <% @results.each do |node| %>
+          <tr class="success">
+          <td ><b>Title<b></td>
+          <td><b><%= node.title %></b></td>
+          <tr>
+          <td><a href="<%= node.link %>" target="_blank" class="btn btn-default btn-lg active" role="button">Link</a></td>
+          <td><%= node.link %></td>
+          <tr>
+          <td>Description</td>
+          <td><%= node.description %></td><tr>
+         
+        <% end %>
+        </table>
+    </div>
+  </body>
+</html>
